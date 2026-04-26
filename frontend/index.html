@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++ Code Optimizer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="bg-gradient"></div>
+
+<div class="container">
+    <header>
+        <h1>⚙️ C++ Code Optimizer</h1>
+        <p class="subtitle">Compiler Design Project — 8-Pass Optimization Engine</p>
+    </header>
+
+    <!-- Upload Section -->
+    <div class="card upload-card">
+        <div id="dropZone" class="drop-zone">
+            <div class="drop-zone-content">
+                <div class="icon">📁</div>
+                <span class="drop-zone__prompt">Drag & Drop .cpp file here</span>
+                <span class="drop-zone__subtext">or click to browse files</span>
+            </div>
+            <input type="file" id="fileInput" accept=".cpp" style="display:none">
+        </div>
+        <div id="fileInfo" class="file-info"></div>
+        <div class="loader" id="loader"></div>
+        <button type="button" id="optimizeBtn" class="primary-btn" disabled>⚙️ Run Optimizer</button>
+        <div class="status-bar">
+            <span id="status">Ready — upload a .cpp file to begin</span>
+        </div>
+    </div>
+
+    <!-- Optimization Passes Info -->
+    <div class="card passes-card" id="passesCard" style="display:none">
+        <h2>🔬 Optimization Passes Applied</h2>
+        <div class="passes-grid">
+            <div class="pass-tag" id="pass-constfold">Constant Folding</div>
+            <div class="pass-tag" id="pass-constprop">Constant Propagation</div>
+            <div class="pass-tag" id="pass-copyprop">Copy Propagation</div>
+            <div class="pass-tag" id="pass-algsimp">Algebraic Simplification</div>
+            <div class="pass-tag" id="pass-strred">Strength Reduction</div>
+            <div class="pass-tag" id="pass-cse">CSE</div>
+            <div class="pass-tag" id="pass-loopinv">Loop-Invariant Motion</div>
+            <div class="pass-tag" id="pass-dce">Dead Code Elimination</div>
+        </div>
+    </div>
+
+    <!-- Code Panels -->
+    <div class="panels-row" id="mainPanels" style="display:none">
+        <div class="panel">
+            <div class="panel-header">
+                <span class="panel-icon">📝</span>
+                <h3>Original Code</h3>
+            </div>
+            <pre id="originalCode" class="code-block"></pre>
+        </div>
+        <div class="panel">
+            <div class="panel-header">
+                <span class="panel-icon">🔤</span>
+                <h3>IR — Before Optimization</h3>
+                <span class="badge badge-before">TAC</span>
+            </div>
+            <pre id="irBefore" class="code-block ir-block"></pre>
+        </div>
+        <div class="panel">
+            <div class="panel-header">
+                <span class="panel-icon">✅</span>
+                <h3>IR — After Optimization</h3>
+                <span class="badge badge-after">Optimized TAC</span>
+            </div>
+            <pre id="irAfter" class="code-block ir-block"></pre>
+        </div>
+        <div class="panel">
+            <div class="panel-header">
+                <span class="panel-icon">🚀</span>
+                <h3>Optimized Output Code</h3>
+            </div>
+            <pre id="optimizedCode" class="code-block output-block"></pre>
+        </div>
+    </div>
+
+    <!-- Optimization Log -->
+    <div class="card log-card" id="logCard" style="display:none">
+        <div class="log-header">
+            <h2>📋 Optimization Log</h2>
+            <span id="logCount" class="badge badge-after">0 transformations</span>
+        </div>
+        <div id="optimizationLog" class="log-container"></div>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
